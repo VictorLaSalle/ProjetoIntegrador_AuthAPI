@@ -1,0 +1,28 @@
+{
+  "name": "projetointegrador_authapi",
+  "version": "1.0.0",
+  "description": "API de autenticação para efetivação no sistema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorLaSalle/ProjetoIntegrador_AuthAPI.git"
+  },
+  "author": "Grupo-II_PI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorLaSalle/ProjetoIntegrador_AuthAPI/issues"
+  },
+  "homepage": "https://github.com/VictorLaSalle/ProjetoIntegrador_AuthAPI#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.0"
+  },
+  "devDependencies": {
+    "dotenv-safe": "^8.2.0"
+  }
+}
