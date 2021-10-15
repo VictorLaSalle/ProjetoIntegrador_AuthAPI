@@ -1,4 +1,4 @@
-module.exports =  async function connect() {
+module.exports = connect =  async function connect() {
     if(global.connection && global.connection.state !== 'disconnect') {
         return global.connection
     }
