@@ -3,7 +3,7 @@ require('../gateways/credentials')
 
 const ROUNDS = 10
 
-module.exports = createUser = async (email, plainText) => bcrypt.hash(plainText, ROUNDS, (err, hash) => err ? console.log(err) : setCredentials(email, hash))
+module.exports = createUser = (email, plainText) => bcrypt.hash(plainText, ROUNDS).then(data => setCredentials(email, data)).catch(err => err)
 
 module.exports = compareCredentials = async (email, plainText) => {
 
