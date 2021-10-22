@@ -11,4 +11,6 @@ app.use(express.json())
 app.use('/login', loginRoute)
 app.use('/createUser', createUserRoute)
 
-app.listen(3000 || process.env.PORT, () => console.log('Escutando na porta 3000'))
+let porta = process.env.PORT || 3000
+
+app.listen(porta, () => console.log('Escutando na porta 3000'))
