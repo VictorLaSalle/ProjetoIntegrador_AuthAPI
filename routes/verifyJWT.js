@@ -2,12 +2,9 @@ const express = require('express')
 const router = express.Router()
 require('../services/jwt')
 
-router.get('/', (req, res) => {
-    let token = req.header('token')
-
+router.post('/', (req, res) => {
+    let token = req.body.token
     let checkToken = verifyJWT(token)
-
-    console.log(checkToken)
 
     if(checkToken instanceof Error) {
         res.status(403)
