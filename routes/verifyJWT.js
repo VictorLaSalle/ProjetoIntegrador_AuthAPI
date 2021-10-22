@@ -3,7 +3,7 @@ const router = express.Router()
 require('../services/jwt')
 
 router.get('/', (req, res) => {
-    let token = req.headers['token']
+    let token = req.headers.token
 
     let checkToken = verifyJWT(token)
 
