@@ -1,9 +1,10 @@
 const express = require('express')
-const jwt = require('jsonwebtoken')
 require('dotenv-safe').config()
+require('./services/jwt')
 
 const loginRoute = require('./routes/login')
 const createUserRoute = require('./routes/createUser')
+const test = require('./routes/teste')
 
 const app = express()
 

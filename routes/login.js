@@ -1,15 +1,21 @@
 const express = require('express')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
 require('../services/crypto')
+require('../services/jwt')
 
 router.post('/', async (req, res) => {
-    var response = compareCredentials(req.body.email, req.body.password).then(data => data).catch(err => err)
-    if(response instanceof Error) {
-        res.status(400)
-        res.send({status: 400, message: response})
-    } else {
+    var response = await compareCredentials(req.body.email, req.body.password).then(data => data).catch(err => err)
+    console.log(response)
+    if(response != null || response != undefined) {
+        let token = jwt.sign({ response }, process.env.SECRET, {
+            expiresIn: 60
+        })
         res.status(200)
-        res.send({status: 200, message: response})
+        res.send({status:200, token: token})
+    } else {
+        res.status(403)
+        res.send({status: 403, message: "Credenciais inválidas"})
     }
 }) 
 

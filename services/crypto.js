@@ -9,8 +9,10 @@ module.exports = compareCredentials = async (email, plainText) => {
 
     const token = await getCredentials(email).then(data => data[0][0].token).catch(err => console.log(err))
       
-        return bcrypt.compare(plainText, token)
+    let comparation = await bcrypt.compare(plainText, token)
           .then(result => result)
           .catch(err => console.log(`${err} => Ocorreu um erro no crypto`))
+
+          return comparation == true ? token : null 
     
 }
