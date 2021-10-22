@@ -7,6 +7,8 @@ router.get('/', (req, res) => {
 
     let checkToken = verifyJWT(token)
 
+    console.log(checkToken)
+
     if(checkToken instanceof Error) {
         res.status(403)
         res.send({status: 403, message: "Token inválido"})
