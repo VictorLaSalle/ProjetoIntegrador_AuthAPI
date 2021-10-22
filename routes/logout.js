@@ -5,3 +5,5 @@ router.post('/', (req, res) => {
     res.status(200)
     res.send({status: 200, token: null})
 })
+
+module.exports = router
