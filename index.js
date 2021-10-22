@@ -5,10 +5,12 @@ require('./services/jwt')
 const loginRoute = require('./routes/login')
 const logoutRoute = require('./routes/logout')
 const createUserRoute = require('./routes/createUser')
+const auth = require('./routes/verifyJWT')
 
 const app = express()
 
 app.use(express.json())
+app.use('/auth', auth)
 app.use('/login', loginRoute)
 app.use('/logout', logoutRoute)
 app.use('/createUser', createUserRoute)

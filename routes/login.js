@@ -6,7 +6,6 @@ require('../services/jwt')
 
 router.post('/', async (req, res) => {
     var response = await compareCredentials(req.body.email, req.body.password).then(data => data).catch(err => err)
-    console.log(response)
     if(response != null || response != undefined) {
         let token = jwt.sign({ response }, process.env.SECRET, {
             expiresIn: 60
