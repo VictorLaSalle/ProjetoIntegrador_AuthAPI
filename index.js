@@ -1,6 +1,7 @@
 const express = require('express')
 require('dotenv-safe').config()
 require('./services/jwt')
+const cors = require('cors')
 
 const loginRoute = require('./routes/login')
 const logoutRoute = require('./routes/logout')
@@ -10,6 +11,7 @@ const auth = require('./routes/verifyJWT')
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 app.use('/auth', auth)
 app.use('/login', loginRoute)
 app.use('/logout', logoutRoute)
